@@ -1,0 +1,965 @@
+Release 14.7 - xst P.20131013 (lin64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> 
+Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.04 secs
+ 
+--> 
+Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.04 secs
+ 
+--> 
+Reading design: top_level.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Parsing
+  3) HDL Elaboration
+  4) HDL Synthesis
+       4.1) HDL Synthesis Report
+  5) Advanced HDL Synthesis
+       5.1) Advanced HDL Synthesis Report
+  6) Low Level Synthesis
+  7) Partition Report
+  8) Design Summary
+       8.1) Primitive and Black Box Usage
+       8.2) Device utilization summary
+       8.3) Partition Resource Summary
+       8.4) Timing Report
+            8.4.1) Clock Information
+            8.4.2) Asynchronous Control Signals Information
+            8.4.3) Timing Summary
+            8.4.4) Timing Details
+            8.4.5) Cross Clock Domains Report
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "top_level.prj"
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "top_level"
+Output Format                      : NGC
+Target Device                      : xc6slx45-3-csg324
+
+---- Source Options
+Top Module Name                    : top_level
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Shift Register Extraction          : YES
+ROM Style                          : Auto
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Shift Register Minimum Size        : 2
+Use DSP Block                      : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+LUT Combining                      : Auto
+Reduce Control Sets                : Auto
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 16
+Register Duplication               : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Auto
+Use Synchronous Set                : Auto
+Use Synchronous Reset              : Auto
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Power Reduction                    : NO
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+DSP48 Utilization Ratio            : 100
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Parsing                                  *
+=========================================================================
+Parsing VHDL file "/home/ashish_221b/BekarLab/seven_seg.vhdl" into library work
+Parsing entity <seven_seg>.
+Parsing architecture <rtl> of entity <seven_seg>.
+Parsing VHDL file "/home/ashish_221b/BekarLab/harness.vhdl" into library work
+Parsing entity <swled>.
+Parsing VHDL file "/home/ashish_221b/BekarLab/encryptor.vhd" into library work
+Parsing entity <encrypter>.
+Parsing architecture <Behavioral> of entity <encrypter>.
+Parsing VHDL file "/home/ashish_221b/BekarLab/decryptor.vhd" into library work
+Parsing entity <decrypter>.
+Parsing architecture <Behavioral> of entity <decrypter>.
+Parsing VHDL file "/home/ashish_221b/BekarLab/debouncer.vhd" into library work
+Parsing entity <debouncer>.
+Parsing architecture <Behavioral> of entity <debouncer>.
+Parsing VHDL file "/home/ashish_221b/BekarLab/comm_fpga_fx2.vhdl" into library work
+Parsing entity <comm_fpga_fx2>.
+Parsing architecture <rtl> of entity <comm_fpga_fx2>.
+Parsing VHDL file "/home/ashish_221b/BekarLab/cksum_rtl.vhdl" into library work
+Parsing architecture <rtl> of entity <swled>.
+Parsing VHDL file "/home/ashish_221b/BekarLab/top_level.vhdl" into library work
+Parsing entity <top_level>.
+Parsing architecture <structural> of entity <top_level>.
+
+=========================================================================
+*                            HDL Elaboration                            *
+=========================================================================
+
+Elaborating entity <top_level> (architecture <structural>) from library <work>.
+
+Elaborating entity <debouncer> (architecture <Behavioral>) with generics from library <work>.
+
+Elaborating entity <comm_fpga_fx2> (architecture <rtl>) from library <work>.
+
+Elaborating entity <swled> (architecture <rtl>) from library <work>.
+
+Elaborating entity <encrypter> (architecture <Behavioral>) from library <work>.
+
+Elaborating entity <decrypter> (architecture <Behavioral>) from library <work>.
+WARNING:HDLCompiler:1127 - "/home/ashish_221b/BekarLab/cksum_rtl.vhdl" Line 126: Assignment to inpb1 ignored, since the identifier is never used
+
+Elaborating entity <seven_seg> (architecture <rtl>) with generics from library <work>.
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Synthesizing Unit <top_level>.
+    Related source file is "/home/ashish_221b/BekarLab/top_level.vhdl".
+    Found 1-bit tristate buffer for signal <fx2Addr_out<0>> created at line 26
+    Summary:
+	inferred   1 Tristate(s).
+Unit <top_level> synthesized.
+
+Synthesizing Unit <debouncer>.
+    Related source file is "/home/ashish_221b/BekarLab/debouncer.vhd".
+        wait_cycles = "11110100001000111111"
+    Found 1-bit register for signal <oldbutton>.
+    Found 1-bit register for signal <button_deb>.
+    Found 20-bit register for signal <count>.
+    Found 20-bit adder for signal <count[19]_GND_7_o_add_0_OUT> created at line 56.
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  22 D-type flip-flop(s).
+Unit <debouncer> synthesized.
+
+Synthesizing Unit <comm_fpga_fx2>.
+    Related source file is "/home/ashish_221b/BekarLab/comm_fpga_fx2.vhdl".
+    Found 17-bit register for signal <count>.
+    Found 7-bit register for signal <chanAddr>.
+    Found 1-bit register for signal <isWrite>.
+    Found 1-bit register for signal <isAligned>.
+    Found 4-bit register for signal <state>.
+    Found finite state machine <FSM_0> for signal <state>.
+    -----------------------------------------------------------------------
+    | States             | 9                                              |
+    | Transitions        | 21                                             |
+    | Inputs             | 7                                              |
+    | Outputs            | 8                                              |
+    | Clock              | clk_in (rising_edge)                           |
+    | Power Up State     | s_reset                                        |
+    | Encoding           | auto                                           |
+    | Implementation     | LUT                                            |
+    -----------------------------------------------------------------------
+    Found 17-bit subtractor for signal <GND_9_o_GND_9_o_sub_21_OUT<16:0>> created at line 1308.
+    Found 1-bit tristate buffer for signal <fifoOp<1>> created at line 106
+    Found 1-bit tristate buffer for signal <fifoOp<0>> created at line 106
+    Found 1-bit tristate buffer for signal <fx2PktEnd_out> created at line 106
+    Found 1-bit tristate buffer for signal <fx2FifoSel_out> created at line 106
+    Found 1-bit tristate buffer for signal <fx2Data_io<7>> created at line 233
+    Found 1-bit tristate buffer for signal <fx2Data_io<6>> created at line 233
+    Found 1-bit tristate buffer for signal <fx2Data_io<5>> created at line 233
+    Found 1-bit tristate buffer for signal <fx2Data_io<4>> created at line 233
+    Found 1-bit tristate buffer for signal <fx2Data_io<3>> created at line 233
+    Found 1-bit tristate buffer for signal <fx2Data_io<2>> created at line 233
+    Found 1-bit tristate buffer for signal <fx2Data_io<1>> created at line 233
+    Found 1-bit tristate buffer for signal <fx2Data_io<0>> created at line 233
+    Summary:
+	inferred   1 Adder/Subtractor(s).
+	inferred  26 D-type flip-flop(s).
+	inferred  27 Multiplexer(s).
+	inferred  12 Tristate(s).
+	inferred   1 Finite State Machine(s).
+Unit <comm_fpga_fx2> synthesized.
+
+Synthesizing Unit <swled>.
+    Related source file is "/home/ashish_221b/BekarLab/harness.vhdl".
+    Found 8-bit register for signal <led_out>.
+    Found 1-bit register for signal <Init>.
+    Found 31-bit register for signal <timer16_us>.
+    Found 31-bit register for signal <timer1_us>.
+    Found 31-bit register for signal <timer3_us>.
+    Found 35-bit register for signal <timerto_us>.
+    Found 32-bit register for signal <input_rec>.
+    Found 32-bit register for signal <enci>.
+    Found 8-bit register for signal <inp>.
+    Found 8-bit register for signal <inp1>.
+    Found 8-bit register for signal <inp2>.
+    Found 8-bit register for signal <inp3>.
+    Found 8-bit register for signal <inp4>.
+    Found 8-bit register for signal <inp5>.
+    Found 8-bit register for signal <inp6>.
+    Found 8-bit register for signal <inp7>.
+    Found 8-bit register for signal <inp8>.
+    Found 8-bit register for signal <readD>.
+    Found 2-bit register for signal <counter_next>.
+    Found 2-bit register for signal <dispchange>.
+    Found 2-bit register for signal <read_count>.
+    Found 6-bit register for signal <gc>.
+    Found 4-bit register for signal <counter1_next>.
+    Found 1-bit register for signal <tcond>.
+    Found 1-bit register for signal <disp1>.
+    Found 1-bit register for signal <edec>.
+    Found 1-bit register for signal <eenc>.
+    Found 1-bit register for signal <reset_enc>.
+    Found 1-bit register for signal <reset_dec>.
+    Found 1-bit register for signal <TrackExists>.
+    Found 1-bit register for signal <TrackOK>.
+    Found 3-bit register for signal <Direction>.
+    Found 3-bit register for signal <DirectionOpp>.
+    Found 31-bit adder for signal <timer16_us[30]_GND_23_o_add_0_OUT> created at line 1241.
+    Found 31-bit adder for signal <timer3_us[30]_GND_23_o_add_2_OUT> created at line 1241.
+    Found 31-bit adder for signal <timer1_us[30]_GND_23_o_add_4_OUT> created at line 1241.
+    Found 35-bit adder for signal <timerto_us[34]_GND_23_o_add_6_OUT> created at line 1241.
+    Found 2-bit adder for signal <read_count[1]_GND_23_o_add_20_OUT> created at line 1241.
+    Found 2-bit adder for signal <counter_next[1]_GND_23_o_add_48_OUT> created at line 1241.
+    Found 6-bit adder for signal <gc[5]_GND_23_o_add_64_OUT> created at line 1241.
+    Found 4-bit adder for signal <counter1_next[3]_GND_23_o_add_100_OUT> created at line 1241.
+    Found 3-bit adder for signal <inp[5]_PWR_14_o_add_130_OUT> created at line 1241.
+    Found 2-bit adder for signal <dispchange[1]_GND_23_o_add_143_OUT> created at line 1241.
+    Found 1-bit 8-to-1 multiplexer for signal <Direction[2]_sw_in[7]_Mux_140_o> created at line 348.
+    Found 1-bit 8-to-1 multiplexer for signal <DirectionOpp[2]_sw_in[7]_Mux_141_o> created at line 349.
+    Found 8-bit 4-to-1 multiplexer for signal <readD[7]_enco[23]_mux_29_OUT> created at line 218.
+    Found 4-bit comparator greater for signal <GND_23_o_counter1_next[3]_LessThan_125_o> created at line 332
+    Found 4-bit comparator greater for signal <counter1_next[3]_PWR_14_o_LessThan_126_o> created at line 332
+    Found 4-bit comparator greater for signal <counter1_next[3]_PWR_14_o_LessThan_137_o> created at line 345
+    Found 4-bit comparator greater for signal <GND_23_o_counter1_next[3]_LessThan_139_o> created at line 345
+    Found 3-bit comparator greater for signal <Direction[2]_DirectionOpp[2]_LessThan_143_o> created at line 352
+    Found 2-bit comparator greater for signal <n0261> created at line 360
+    Summary:
+	inferred  10 Adder/Subtractor(s).
+	inferred 311 D-type flip-flop(s).
+	inferred   6 Comparator(s).
+	inferred  67 Multiplexer(s).
+Unit <swled> synthesized.
+
+Synthesizing Unit <encrypter>.
+    Related source file is "/home/ashish_221b/BekarLab/encryptor.vhd".
+    Found 32-bit register for signal <C2>.
+    Found 32-bit register for signal <K2>.
+    Found 32-bit register for signal <C>.
+    Found 6-bit register for signal <instantiate>.
+    Found 4-bit register for signal <T>.
+    Found 1-bit register for signal <done>.
+    Found 4-bit adder for signal <T[3]_GND_24_o_add_11_OUT> created at line 87.
+    Found 6-bit adder for signal <instantiate[5]_GND_24_o_add_14_OUT> created at line 90.
+    Found 6-bit comparator greater for signal <instantiate[5]_PWR_15_o_LessThan_3_o> created at line 75
+    Summary:
+	inferred   2 Adder/Subtractor(s).
+	inferred 107 D-type flip-flop(s).
+	inferred   1 Comparator(s).
+	inferred   4 Multiplexer(s).
+Unit <encrypter> synthesized.
+
+Synthesizing Unit <decrypter>.
+    Related source file is "/home/ashish_221b/BekarLab/decryptor.vhd".
+    Found 32-bit register for signal <P2>.
+    Found 32-bit register for signal <P>.
+    Found 6-bit register for signal <instantiate>.
+    Found 6-bit register for signal <count>.
+    Found 4-bit register for signal <T>.
+    Found 1-bit register for signal <done>.
+    Found 6-bit register for signal <count2>.
+    Found 4-bit adder for signal <PWR_16_o_K[31]_add_8_OUT> created at line 70.
+    Found 6-bit adder for signal <n0331> created at line 72.
+    Found 6-bit adder for signal <n0334> created at line 72.
+    Found 6-bit adder for signal <n0337> created at line 72.
+    Found 6-bit adder for signal <n0340> created at line 72.
+    Found 6-bit adder for signal <n0343> created at line 72.
+    Found 6-bit adder for signal <n0346> created at line 72.
+    Found 6-bit adder for signal <n0349> created at line 72.
+    Found 6-bit adder for signal <n0352> created at line 72.
+    Found 6-bit adder for signal <n0355> created at line 72.
+    Found 6-bit adder for signal <n0358> created at line 72.
+    Found 6-bit adder for signal <n0361> created at line 72.
+    Found 6-bit adder for signal <n0364> created at line 72.
+    Found 6-bit adder for signal <n0367> created at line 72.
+    Found 6-bit adder for signal <n0370> created at line 72.
+    Found 6-bit adder for signal <n0373> created at line 72.
+    Found 6-bit adder for signal <n0376> created at line 72.
+    Found 6-bit adder for signal <n0379> created at line 72.
+    Found 6-bit adder for signal <n0382> created at line 72.
+    Found 6-bit adder for signal <n0385> created at line 72.
+    Found 6-bit adder for signal <n0388> created at line 72.
+    Found 6-bit adder for signal <n0391> created at line 72.
+    Found 6-bit adder for signal <n0394> created at line 72.
+    Found 6-bit adder for signal <n0397> created at line 72.
+    Found 6-bit adder for signal <n0400> created at line 72.
+    Found 6-bit adder for signal <n0403> created at line 72.
+    Found 6-bit adder for signal <n0406> created at line 72.
+    Found 6-bit adder for signal <n0409> created at line 72.
+    Found 6-bit adder for signal <n0412> created at line 72.
+    Found 6-bit adder for signal <n0415> created at line 72.
+    Found 6-bit adder for signal <n0418> created at line 72.
+    Found 6-bit adder for signal <GND_25_o_GND_25_o_add_39_OUT> created at line 72.
+    Found 6-bit adder for signal <n0423> created at line 77.
+    Found 6-bit adder for signal <n0426> created at line 77.
+    Found 6-bit adder for signal <n0429> created at line 77.
+    Found 6-bit adder for signal <n0432> created at line 77.
+    Found 6-bit adder for signal <n0435> created at line 77.
+    Found 6-bit adder for signal <n0438> created at line 77.
+    Found 6-bit adder for signal <n0441> created at line 77.
+    Found 6-bit adder for signal <n0444> created at line 77.
+    Found 6-bit adder for signal <n0447> created at line 77.
+    Found 6-bit adder for signal <n0450> created at line 77.
+    Found 6-bit adder for signal <n0453> created at line 77.
+    Found 6-bit adder for signal <n0456> created at line 77.
+    Found 6-bit adder for signal <n0459> created at line 77.
+    Found 6-bit adder for signal <n0462> created at line 77.
+    Found 6-bit adder for signal <n0465> created at line 77.
+    Found 6-bit adder for signal <n0468> created at line 77.
+    Found 6-bit adder for signal <n0471> created at line 77.
+    Found 6-bit adder for signal <n0474> created at line 77.
+    Found 6-bit adder for signal <n0477> created at line 77.
+    Found 6-bit adder for signal <n0480> created at line 77.
+    Found 6-bit adder for signal <n0483> created at line 77.
+    Found 6-bit adder for signal <n0486> created at line 77.
+    Found 6-bit adder for signal <n0489> created at line 77.
+    Found 6-bit adder for signal <n0492> created at line 77.
+    Found 6-bit adder for signal <n0495> created at line 77.
+    Found 6-bit adder for signal <n0498> created at line 77.
+    Found 6-bit adder for signal <n0501> created at line 77.
+    Found 6-bit adder for signal <n0504> created at line 77.
+    Found 6-bit adder for signal <n0507> created at line 77.
+    Found 6-bit adder for signal <n0510> created at line 77.
+    Found 6-bit adder for signal <n0513> created at line 77.
+    Found 6-bit adder for signal <GND_25_o_GND_25_o_add_71_OUT> created at line 77.
+    Found 4-bit adder for signal <T[3]_PWR_16_o_add_82_OUT> created at line 91.
+    Found 6-bit adder for signal <instantiate[5]_GND_25_o_add_85_OUT> created at line 96.
+    Found 6-bit comparator equal for signal <instantiate[5]_count[5]_equal_73_o> created at line 82
+    Found 6-bit comparator greater for signal <instantiate[5]_count[5]_LessThan_74_o> created at line 82
+    Found 6-bit comparator equal for signal <instantiate[5]_count2[5]_equal_85_o> created at line 93
+    Summary:
+	inferred  65 Adder/Subtractor(s).
+	inferred  87 D-type flip-flop(s).
+	inferred   3 Comparator(s).
+	inferred   3 Multiplexer(s).
+Unit <decrypter> synthesized.
+
+Synthesizing Unit <seven_seg>.
+    Related source file is "/home/ashish_221b/BekarLab/seven_seg.vhdl".
+        COUNTER_WIDTH = 18
+    Found 18-bit register for signal <count>.
+    Found 18-bit adder for signal <count_next> created at line 1241.
+    Found 4x4-bit Read Only RAM for signal <anodes_out>
+    Found 1-bit 4-to-1 multiplexer for signal <dot> created at line 67.
+    Summary:
+	inferred   1 RAM(s).
+	inferred   1 Adder/Subtractor(s).
+	inferred  18 D-type flip-flop(s).
+	inferred   1 Multiplexer(s).
+Unit <seven_seg> synthesized.
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 4x4-bit single-port Read Only RAM                     : 1
+# Adders/Subtractors                                   : 80
+ 17-bit subtractor                                     : 1
+ 18-bit adder                                          : 1
+ 2-bit adder                                           : 3
+ 20-bit adder                                          : 1
+ 3-bit adder                                           : 1
+ 31-bit adder                                          : 3
+ 35-bit adder                                          : 1
+ 4-bit adder                                           : 3
+ 6-bit adder                                           : 66
+# Registers                                            : 54
+ 1-bit register                                        : 15
+ 17-bit register                                       : 1
+ 18-bit register                                       : 1
+ 2-bit register                                        : 3
+ 20-bit register                                       : 1
+ 3-bit register                                        : 2
+ 31-bit register                                       : 3
+ 32-bit register                                       : 7
+ 35-bit register                                       : 1
+ 4-bit register                                        : 3
+ 6-bit register                                        : 5
+ 7-bit register                                        : 1
+ 8-bit register                                        : 11
+# Comparators                                          : 10
+ 2-bit comparator greater                              : 1
+ 3-bit comparator greater                              : 1
+ 4-bit comparator greater                              : 4
+ 6-bit comparator equal                                : 2
+ 6-bit comparator greater                              : 2
+# Multiplexers                                         : 102
+ 1-bit 2-to-1 multiplexer                              : 59
+ 1-bit 4-to-1 multiplexer                              : 1
+ 1-bit 8-to-1 multiplexer                              : 2
+ 17-bit 2-to-1 multiplexer                             : 3
+ 2-bit 2-to-1 multiplexer                              : 1
+ 31-bit 2-to-1 multiplexer                             : 3
+ 32-bit 2-to-1 multiplexer                             : 4
+ 35-bit 2-to-1 multiplexer                             : 1
+ 4-bit 2-to-1 multiplexer                              : 3
+ 6-bit 2-to-1 multiplexer                              : 7
+ 8-bit 2-to-1 multiplexer                              : 17
+ 8-bit 4-to-1 multiplexer                              : 1
+# Tristates                                            : 13
+ 1-bit tristate buffer                                 : 13
+# FSMs                                                 : 1
+# Xors                                                 : 23
+ 1-bit xor2                                            : 2
+ 1-bit xor8                                            : 4
+ 4-bit xor2                                            : 16
+ 4-bit xor8                                            : 1
+
+=========================================================================
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+INFO:Xst:2261 - The FF/Latch <enci_1> in Unit <swled_app> is equivalent to the following FF/Latch, which will be removed : <enci_5> 
+INFO:Xst:2261 - The FF/Latch <enci_2> in Unit <swled_app> is equivalent to the following 28 FFs/Latches, which will be removed : <enci_3> <enci_4> <enci_6> <enci_7> <enci_8> <enci_9> <enci_10> <enci_11> <enci_12> <enci_13> <enci_14> <enci_15> <enci_16> <enci_17> <enci_18> <enci_19> <enci_20> <enci_21> <enci_22> <enci_23> <enci_24> <enci_25> <enci_26> <enci_27> <enci_28> <enci_29> <enci_30> <enci_31> 
+WARNING:Xst:1293 - FF/Latch <enci_2> has a constant value of 0 in block <swled_app>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:2677 - Node <inp_0> of sequential type is unconnected in block <swled_app>.
+WARNING:Xst:2677 - Node <inp_1> of sequential type is unconnected in block <swled_app>.
+WARNING:Xst:2677 - Node <inp_2> of sequential type is unconnected in block <swled_app>.
+
+Synthesizing (advanced) Unit <debouncer>.
+The following registers are absorbed into counter <count>: 1 register on signal <count>.
+Unit <debouncer> synthesized (advanced).
+
+Synthesizing (advanced) Unit <decrypter>.
+The following registers are absorbed into counter <instantiate>: 1 register on signal <instantiate>.
+	The following adders/subtractors are grouped into adder tree <Madd_GND_25_o_GND_25_o_add_71_OUT_Madd1> :
+ 	<Madd_n0426_Madd> in block <decrypter>, 	<Madd_n0432_Madd> in block <decrypter>, 	<Madd_n0438_Madd> in block <decrypter>, 	<Madd_n0444_Madd> in block <decrypter>, 	<Madd_n0450_Madd> in block <decrypter>, 	<Madd_n0456_Madd> in block <decrypter>, 	<Madd_n0462_Madd> in block <decrypter>, 	<Madd_n0468_Madd> in block <decrypter>, 	<Madd_n0474_Madd> in block <decrypter>, 	<Madd_n0480_Madd> in block <decrypter>, 	<Madd_n0486_Madd> in block <decrypter>, 	<Madd_n0492_Madd> in block <decrypter>, 	<Madd_n0498_Madd> in block <decrypter>, 	<Madd_n0504_Madd> in block <decrypter>, 	<Madd_n0510_Madd> in block <decrypter>, 	<Madd_GND_25_o_GND_25_o_add_71_OUT_Madd> in block <decrypter>.
+	The following adders/subtractors are grouped into adder tree <Madd_GND_25_o_GND_25_o_add_39_OUT_Madd1> :
+ 	<Madd_n0331> in block <decrypter>, 	<Madd_n0337_Madd> in block <decrypter>, 	<Madd_n0343_Madd> in block <decrypter>, 	<Madd_n0349_Madd> in block <decrypter>, 	<Madd_n0355_Madd> in block <decrypter>, 	<Madd_n0361_Madd> in block <decrypter>, 	<Madd_n0367_Madd> in block <decrypter>, 	<Madd_n0373_Madd> in block <decrypter>, 	<Madd_n0379_Madd> in block <decrypter>, 	<Madd_n0385_Madd> in block <decrypter>, 	<Madd_n0391_Madd> in block <decrypter>, 	<Madd_n0397_Madd> in block <decrypter>, 	<Madd_n0403_Madd> in block <decrypter>, 	<Madd_n0409_Madd> in block <decrypter>, 	<Madd_n0415_Madd> in block <decrypter>, 	<Madd_GND_25_o_GND_25_o_add_39_OUT_Madd> in block <decrypter>.
+Unit <decrypter> synthesized (advanced).
+
+Synthesizing (advanced) Unit <encrypter>.
+The following registers are absorbed into counter <instantiate>: 1 register on signal <instantiate>.
+The following registers are absorbed into counter <T>: 1 register on signal <T>.
+Unit <encrypter> synthesized (advanced).
+
+Synthesizing (advanced) Unit <seven_seg>.
+The following registers are absorbed into counter <count>: 1 register on signal <count>.
+INFO:Xst:3218 - HDL ADVISOR - The RAM <Mram_anodes_out> will be implemented on LUTs either because you have described an asynchronous read or because of currently unsupported block RAM features. If you have described an asynchronous read, making it synchronous would allow you to take advantage of available block RAM resources, for optimized device usage and improved timings. Please refer to your documentation for coding guidelines.
+    -----------------------------------------------------------------------
+    | ram_type           | Distributed                         |          |
+    -----------------------------------------------------------------------
+    | Port A                                                              |
+    |     aspect ratio   | 4-word x 4-bit                      |          |
+    |     weA            | connected to signal <GND>           | high     |
+    |     addrA          | connected to signal <count>         |          |
+    |     diA            | connected to signal <GND>           |          |
+    |     doA            | connected to signal <anodes_out>    |          |
+    -----------------------------------------------------------------------
+Unit <seven_seg> synthesized (advanced).
+
+Synthesizing (advanced) Unit <swled>.
+The following registers are absorbed into counter <timer16_us>: 1 register on signal <timer16_us>.
+The following registers are absorbed into counter <timer1_us>: 1 register on signal <timer1_us>.
+The following registers are absorbed into counter <timer3_us>: 1 register on signal <timer3_us>.
+The following registers are absorbed into counter <timerto_us>: 1 register on signal <timerto_us>.
+The following registers are absorbed into counter <counter_next>: 1 register on signal <counter_next>.
+The following registers are absorbed into counter <dispchange>: 1 register on signal <dispchange>.
+The following registers are absorbed into counter <read_count>: 1 register on signal <read_count>.
+The following registers are absorbed into counter <counter1_next>: 1 register on signal <counter1_next>.
+Unit <swled> synthesized (advanced).
+WARNING:Xst:2677 - Node <inp_0> of sequential type is unconnected in block <swled>.
+WARNING:Xst:2677 - Node <inp_1> of sequential type is unconnected in block <swled>.
+WARNING:Xst:2677 - Node <inp_2> of sequential type is unconnected in block <swled>.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# RAMs                                                 : 1
+ 4x4-bit single-port distributed Read Only RAM         : 1
+# Adders/Subtractors                                   : 5
+ 17-bit subtractor                                     : 1
+ 20-bit adder                                          : 1
+ 3-bit adder                                           : 1
+ 4-bit adder                                           : 1
+ 6-bit adder                                           : 1
+# Adder Trees                                          : 2
+ 6-bit / 16-inputs adder tree                          : 1
+ 6-bit / 17-inputs adder tree                          : 1
+# Counters                                             : 13
+ 18-bit up counter                                     : 1
+ 2-bit up counter                                      : 3
+ 20-bit up counter                                     : 1
+ 31-bit up counter                                     : 3
+ 35-bit up counter                                     : 1
+ 4-bit up counter                                      : 2
+ 6-bit up counter                                      : 2
+# Registers                                            : 376
+ Flip-Flops                                            : 376
+# Comparators                                          : 10
+ 2-bit comparator greater                              : 1
+ 3-bit comparator greater                              : 1
+ 4-bit comparator greater                              : 4
+ 6-bit comparator equal                                : 2
+ 6-bit comparator greater                              : 2
+# Multiplexers                                         : 124
+ 1-bit 2-to-1 multiplexer                              : 91
+ 1-bit 4-to-1 multiplexer                              : 1
+ 1-bit 8-to-1 multiplexer                              : 2
+ 17-bit 2-to-1 multiplexer                             : 3
+ 32-bit 2-to-1 multiplexer                             : 3
+ 4-bit 2-to-1 multiplexer                              : 1
+ 6-bit 2-to-1 multiplexer                              : 5
+ 8-bit 2-to-1 multiplexer                              : 17
+ 8-bit 4-to-1 multiplexer                              : 1
+# FSMs                                                 : 1
+# Xors                                                 : 23
+ 1-bit xor2                                            : 2
+ 1-bit xor8                                            : 4
+ 4-bit xor2                                            : 16
+ 4-bit xor8                                            : 1
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:1293 - FF/Latch <enci_31> has a constant value of 0 in block <swled>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <enci_30> has a constant value of 0 in block <swled>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <enci_29> has a constant value of 0 in block <swled>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <enci_28> has a constant value of 0 in block <swled>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <enci_27> has a constant value of 0 in block <swled>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <enci_26> has a constant value of 0 in block <swled>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <enci_25> has a constant value of 0 in block <swled>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <enci_24> has a constant value of 0 in block <swled>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <enci_23> has a constant value of 0 in block <swled>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <enci_22> has a constant value of 0 in block <swled>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <enci_21> has a constant value of 0 in block <swled>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <enci_20> has a constant value of 0 in block <swled>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <enci_19> has a constant value of 0 in block <swled>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <enci_18> has a constant value of 0 in block <swled>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <enci_17> has a constant value of 0 in block <swled>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <enci_16> has a constant value of 0 in block <swled>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <enci_15> has a constant value of 0 in block <swled>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <enci_14> has a constant value of 0 in block <swled>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <enci_13> has a constant value of 0 in block <swled>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <enci_12> has a constant value of 0 in block <swled>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <enci_11> has a constant value of 0 in block <swled>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <enci_10> has a constant value of 0 in block <swled>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <enci_9> has a constant value of 0 in block <swled>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <enci_8> has a constant value of 0 in block <swled>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <enci_7> has a constant value of 0 in block <swled>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <enci_6> has a constant value of 0 in block <swled>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <enci_4> has a constant value of 0 in block <swled>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <enci_3> has a constant value of 0 in block <swled>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <enci_2> has a constant value of 0 in block <swled>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <enci_1> in Unit <swled> is equivalent to the following FF/Latch, which will be removed : <enci_5> 
+Analyzing FSM <MFsm> for best encoding.
+Optimizing FSM <comm_fpga_fx2/FSM_0> on signal <state[1:4]> with user encoding.
+------------------------------------
+ State                  | Encoding
+------------------------------------
+ s_reset                | 0000
+ s_idle                 | 0001
+ s_get_count0           | 0010
+ s_get_count1           | 0011
+ s_begin_write          | 0100
+ s_write                | 0101
+ s_end_write_aligned    | 0110
+ s_end_write_nonaligned | 0111
+ s_read                 | 1000
+------------------------------------
+WARNING:Xst:2677 - Node <inp1_0> of sequential type is unconnected in block <swled>.
+WARNING:Xst:2677 - Node <inp1_1> of sequential type is unconnected in block <swled>.
+WARNING:Xst:2677 - Node <inp1_2> of sequential type is unconnected in block <swled>.
+WARNING:Xst:2677 - Node <inp2_0> of sequential type is unconnected in block <swled>.
+WARNING:Xst:2677 - Node <inp2_1> of sequential type is unconnected in block <swled>.
+WARNING:Xst:2677 - Node <inp2_2> of sequential type is unconnected in block <swled>.
+WARNING:Xst:2677 - Node <inp3_0> of sequential type is unconnected in block <swled>.
+WARNING:Xst:2677 - Node <inp3_1> of sequential type is unconnected in block <swled>.
+WARNING:Xst:2677 - Node <inp3_2> of sequential type is unconnected in block <swled>.
+WARNING:Xst:2677 - Node <inp6_0> of sequential type is unconnected in block <swled>.
+WARNING:Xst:2677 - Node <inp6_1> of sequential type is unconnected in block <swled>.
+WARNING:Xst:2677 - Node <inp6_2> of sequential type is unconnected in block <swled>.
+WARNING:Xst:2677 - Node <inp4_0> of sequential type is unconnected in block <swled>.
+WARNING:Xst:2677 - Node <inp4_1> of sequential type is unconnected in block <swled>.
+WARNING:Xst:2677 - Node <inp4_2> of sequential type is unconnected in block <swled>.
+WARNING:Xst:2677 - Node <inp5_0> of sequential type is unconnected in block <swled>.
+WARNING:Xst:2677 - Node <inp5_1> of sequential type is unconnected in block <swled>.
+WARNING:Xst:2677 - Node <inp5_2> of sequential type is unconnected in block <swled>.
+WARNING:Xst:2677 - Node <inp7_0> of sequential type is unconnected in block <swled>.
+WARNING:Xst:2677 - Node <inp7_1> of sequential type is unconnected in block <swled>.
+WARNING:Xst:2677 - Node <inp7_2> of sequential type is unconnected in block <swled>.
+WARNING:Xst:2677 - Node <inp8_0> of sequential type is unconnected in block <swled>.
+WARNING:Xst:2677 - Node <inp8_1> of sequential type is unconnected in block <swled>.
+WARNING:Xst:2677 - Node <inp8_2> of sequential type is unconnected in block <swled>.
+WARNING:Xst:1710 - FF/Latch <count_2> (without init value) has a constant value of 0 in block <decrypter>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <count_5> (without init value) has a constant value of 0 in block <decrypter>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <count2_0> (without init value) has a constant value of 0 in block <decrypter>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <count2_1> (without init value) has a constant value of 0 in block <decrypter>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <count2_2> (without init value) has a constant value of 1 in block <decrypter>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <count2_3> (without init value) has a constant value of 1 in block <decrypter>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <count2_4> (without init value) has a constant value of 1 in block <decrypter>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <count2_5> (without init value) has a constant value of 0 in block <decrypter>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <Direction_0> in Unit <swled> is equivalent to the following FF/Latch, which will be removed : <DirectionOpp_0> 
+INFO:Xst:2261 - The FF/Latch <Direction_1> in Unit <swled> is equivalent to the following FF/Latch, which will be removed : <DirectionOpp_1> 
+INFO:Xst:2261 - The FF/Latch <led_out_3> in Unit <swled> is equivalent to the following FF/Latch, which will be removed : <led_out_4> 
+INFO:Xst:2261 - The FF/Latch <count_0> in Unit <decrypter> is equivalent to the following 3 FFs/Latches, which will be removed : <count_1> <count_3> <count_4> 
+WARNING:Xst:3002 - This design contains one or more registers/latches that are directly
+   incompatible with the Spartan6 architecture. The two primary causes of this is
+   either a register or latch described with both an asynchronous set and
+   asynchronous reset, or a register or latch described with an asynchronous
+   set or reset which however has an initialization value of the opposite 
+   polarity (i.e. asynchronous reset with an initialization value of 1).
+    While this circuit can be built, it creates a sub-optimal implementation
+   in terms of area, power and performance. For a more optimal implementation
+   Xilinx highly recommends one of the following:
+
+          1) Remove either the set or reset from all registers and latches
+             if not needed for required functionality
+          2) Modify the code in order to produce a synchronous set
+             and/or reset (both is preferred)
+          3) Ensure all registers have the same initialization value as the
+             described asynchronous set or reset polarity
+          4) Use the -async_to_sync option to transform the asynchronous
+             set/reset to synchronous operation
+             (timing simulation highly recommended when using this option)
+
+  Please refer to http://www.xilinx.com search string "Spartan6 asynchronous set/reset" for more details.
+
+  List of register instances with asynchronous set or reset and opposite initialization value:
+    gc_3 in unit <swled>
+    gc_1 in unit <swled>
+
+
+Optimizing unit <top_level> ...
+
+Optimizing unit <swled> ...
+
+Optimizing unit <encrypter> ...
+
+Optimizing unit <decrypter> ...
+
+Optimizing unit <debouncer> ...
+WARNING:Xst:1293 - FF/Latch <swled_app/timerto_us_34> has a constant value of 0 in block <top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <swled_app/timer3_us_30> has a constant value of 0 in block <top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <swled_app/timer3_us_29> has a constant value of 0 in block <top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <swled_app/timer3_us_28> has a constant value of 0 in block <top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <swled_app/timer1_us_30> has a constant value of 0 in block <top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <swled_app/timer1_us_29> has a constant value of 0 in block <top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <swled_app/timer1_us_28> has a constant value of 0 in block <top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <swled_app/timer1_us_27> has a constant value of 0 in block <top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <swled_app/timer1_us_26> has a constant value of 0 in block <top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <swled_app/gc_5> has a constant value of 0 in block <top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1896 - Due to other FF/Latch trimming, FF/Latch <swled_app/gc_4> has a constant value of 0 in block <top_level>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1895 - Due to other FF/Latch trimming, FF/Latch <swled_app/decrypt1/instantiate_5> (without init value) has a constant value of 0 in block <top_level>. This FF/Latch will be trimmed during the optimization process.
+INFO:Xst:2261 - The FF/Latch <swled_app/encrypt1/C_12> in Unit <top_level> is equivalent to the following 6 FFs/Latches, which will be removed : <swled_app/encrypt1/C_28> <swled_app/encrypt1/C_24> <swled_app/encrypt1/C_20> <swled_app/encrypt1/C_16> <swled_app/encrypt1/C_8> <swled_app/encrypt1/C_4> 
+INFO:Xst:2261 - The FF/Latch <swled_app/encrypt1/C_13> in Unit <top_level> is equivalent to the following 5 FFs/Latches, which will be removed : <swled_app/encrypt1/C_29> <swled_app/encrypt1/C_25> <swled_app/encrypt1/C_21> <swled_app/encrypt1/C_17> <swled_app/encrypt1/C_9> 
+INFO:Xst:2261 - The FF/Latch <swled_app/encrypt1/C_14> in Unit <top_level> is equivalent to the following 7 FFs/Latches, which will be removed : <swled_app/encrypt1/C_30> <swled_app/encrypt1/C_26> <swled_app/encrypt1/C_22> <swled_app/encrypt1/C_18> <swled_app/encrypt1/C_10> <swled_app/encrypt1/C_6> <swled_app/encrypt1/C_2> 
+INFO:Xst:2261 - The FF/Latch <swled_app/encrypt1/C_15> in Unit <top_level> is equivalent to the following 7 FFs/Latches, which will be removed : <swled_app/encrypt1/C_31> <swled_app/encrypt1/C_27> <swled_app/encrypt1/C_23> <swled_app/encrypt1/C_19> <swled_app/encrypt1/C_11> <swled_app/encrypt1/C_7> <swled_app/encrypt1/C_3> 
+INFO:Xst:2261 - The FF/Latch <swled_app/encrypt1/C2_5> in Unit <top_level> is equivalent to the following FF/Latch, which will be removed : <swled_app/encrypt1/C2_1> 
+INFO:Xst:2261 - The FF/Latch <swled_app/encrypt1/C2_30> in Unit <top_level> is equivalent to the following 7 FFs/Latches, which will be removed : <swled_app/encrypt1/C2_26> <swled_app/encrypt1/C2_22> <swled_app/encrypt1/C2_18> <swled_app/encrypt1/C2_14> <swled_app/encrypt1/C2_10> <swled_app/encrypt1/C2_6> <swled_app/encrypt1/C2_2> 
+INFO:Xst:2261 - The FF/Latch <swled_app/encrypt1/C2_31> in Unit <top_level> is equivalent to the following 7 FFs/Latches, which will be removed : <swled_app/encrypt1/C2_27> <swled_app/encrypt1/C2_23> <swled_app/encrypt1/C2_19> <swled_app/encrypt1/C2_15> <swled_app/encrypt1/C2_11> <swled_app/encrypt1/C2_7> <swled_app/encrypt1/C2_3> 
+INFO:Xst:2261 - The FF/Latch <swled_app/readD_5> in Unit <top_level> is equivalent to the following FF/Latch, which will be removed : <swled_app/readD_1> 
+INFO:Xst:2261 - The FF/Latch <swled_app/readD_6> in Unit <top_level> is equivalent to the following FF/Latch, which will be removed : <swled_app/readD_2> 
+INFO:Xst:2261 - The FF/Latch <swled_app/readD_7> in Unit <top_level> is equivalent to the following FF/Latch, which will be removed : <swled_app/readD_3> 
+INFO:Xst:2261 - The FF/Latch <swled_app/encrypt1/C_5> in Unit <top_level> is equivalent to the following FF/Latch, which will be removed : <swled_app/encrypt1/C_1> 
+INFO:Xst:2261 - The FF/Latch <swled_app/encrypt1/T_1> in Unit <top_level> is equivalent to the following 7 FFs/Latches, which will be removed : <swled_app/encrypt1/C2_28> <swled_app/encrypt1/C2_24> <swled_app/encrypt1/C2_20> <swled_app/encrypt1/C2_16> <swled_app/encrypt1/C2_12> <swled_app/encrypt1/C2_8> <swled_app/encrypt1/C2_4> 
+
+Mapping all equations...
+WARNING:Xst:2677 - Node <swled_app/encrypt1/C2_29> of sequential type is unconnected in block <top_level>.
+WARNING:Xst:2677 - Node <swled_app/encrypt1/C2_25> of sequential type is unconnected in block <top_level>.
+WARNING:Xst:2677 - Node <swled_app/encrypt1/C2_21> of sequential type is unconnected in block <top_level>.
+WARNING:Xst:2677 - Node <swled_app/encrypt1/C2_17> of sequential type is unconnected in block <top_level>.
+WARNING:Xst:2677 - Node <swled_app/encrypt1/C2_9> of sequential type is unconnected in block <top_level>.
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block top_level, actual ratio is 3.
+WARNING:Xst:1426 - The value init of the FF/Latch swled_app/gc_3_LD hinder the constant cleaning in the block top_level.
+   You should achieve better results by setting this init to 1.
+FlipFlop swled_app/gc_0 has been replicated 1 time(s)
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 439
+ Flip-Flops                                            : 439
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Design Summary                             *
+=========================================================================
+
+Top Level Output File Name         : top_level.ngc
+
+Primitive and Black Box Usage:
+------------------------------
+# BELS                             : 1084
+#      GND                         : 1
+#      INV                         : 27
+#      LUT1                        : 171
+#      LUT2                        : 47
+#      LUT3                        : 50
+#      LUT4                        : 188
+#      LUT5                        : 55
+#      LUT6                        : 161
+#      MUXCY                       : 186
+#      MUXF7                       : 3
+#      VCC                         : 1
+#      XORCY                       : 194
+# FlipFlops/Latches                : 440
+#      FD                          : 29
+#      FDC                         : 128
+#      FDCE                        : 221
+#      FDE                         : 31
+#      FDP                         : 3
+#      FDPE                        : 7
+#      FDR                         : 20
+#      LD                          : 1
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 45
+#      IBUF                        : 11
+#      IOBUF                       : 8
+#      OBUF                        : 20
+#      OBUFT                       : 6
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 6slx45csg324-3 
+
+
+Slice Logic Utilization: 
+ Number of Slice Registers:             440  out of  54576     0%  
+ Number of Slice LUTs:                  699  out of  27288     2%  
+    Number used as Logic:               699  out of  27288     2%  
+
+Slice Logic Distribution: 
+ Number of LUT Flip Flop pairs used:    766
+   Number with an unused Flip Flop:     326  out of    766    42%  
+   Number with an unused LUT:            67  out of    766     8%  
+   Number of fully used LUT-FF pairs:   373  out of    766    48%  
+   Number of unique control sets:        25
+
+IO Utilization: 
+ Number of IOs:                          46
+ Number of bonded IOBs:                  46  out of    218    21%  
+
+Specific Feature Utilization:
+ Number of BUFG/BUFGCTRLs:                1  out of     16     6%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+Timing Report
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-----------------------------------+------------------------+-------+
+Clock Signal                       | Clock buffer(FF name)  | Load  |
+-----------------------------------+------------------------+-------+
+fx2Clk_in                          | BUFGP                  | 439   |
+debouncer5/button_deb              | NONE(swled_app/gc_3_LD)| 1     |
+-----------------------------------+------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -3
+
+   Minimum period: 5.833ns (Maximum Frequency: 171.450MHz)
+   Minimum input arrival time before clock: 6.260ns
+   Maximum output required time after clock: 6.753ns
+   Maximum combinational path delay: 6.822ns
+
+Timing Details:
+---------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'fx2Clk_in'
+  Clock period: 5.833ns (frequency: 171.450MHz)
+  Total number of paths / destination ports: 20318 / 1068
+-------------------------------------------------------------------------
+Delay:               5.833ns (Levels of Logic = 5)
+  Source:            swled_app/timerto_us_28 (FF)
+  Destination:       swled_app/gc_2 (FF)
+  Source Clock:      fx2Clk_in rising
+  Destination Clock: fx2Clk_in rising
+
+  Data Path: swled_app/timerto_us_28 to swled_app/gc_2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q              2   0.447   0.961  swled_app/timerto_us_28 (swled_app/timerto_us_28)
+     LUT5:I0->O            3   0.203   1.015  swled_app/tick_timeout<34>4 (swled_app/tick_timeout<34>3)
+     LUT6:I0->O            4   0.203   0.684  swled_app/tick_timeout<34>7_1 (swled_app/tick_timeout<34>7)
+     LUT6:I5->O            5   0.205   0.819  swled_app/GND_23_o_tick_timeout_AND_11_o1 (swled_app/GND_23_o_tick_timeout_AND_11_o)
+     LUT6:I4->O            4   0.203   0.788  swled_app/Mmux_gc[5]_gc[5]_mux_171_OUT21 (swled_app/Mmux_gc[5]_gc[5]_mux_171_OUT21)
+     LUT5:I3->O            1   0.203   0.000  swled_app/gc_2_rstpot (swled_app/gc_2_rstpot)
+     FDC:D                     0.102          swled_app/gc_2
+    ----------------------------------------
+    Total                      5.833ns (1.566ns logic, 4.267ns route)
+                                       (26.8% logic, 73.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'fx2Clk_in'
+  Total number of paths / destination ports: 507 / 173
+-------------------------------------------------------------------------
+Offset:              6.260ns (Levels of Logic = 6)
+  Source:            sw_in<0> (PAD)
+  Destination:       swled_app/led_out_7 (FF)
+  Destination Clock: fx2Clk_in rising
+
+  Data Path: sw_in<0> to swled_app/led_out_7
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             1   1.222   0.944  sw_in_0_IBUF (sw_in_0_IBUF)
+     LUT6:I0->O            3   0.203   0.755  swled_app/Mmux_Direction[2]_sw_in[7]_Mux_140_o_4 (swled_app/Mmux_DirectionOpp[2]_sw_in[7]_Mux_141_o_4)
+     LUT3:I1->O            2   0.203   0.617  swled_app/Mmux_Direction[2]_sw_in[7]_Mux_140_o_2_f71 (swled_app/Direction[2]_sw_in[7]_Mux_140_o)
+     LUT6:I5->O            1   0.205   0.827  swled_app/_n0875_inv4 (swled_app/_n0875_inv4)
+     LUT5:I1->O            7   0.203   0.774  swled_app/_n0875_inv5_rstpot (swled_app/_n0875_inv5_rstpot)
+     LUT3:I2->O            1   0.205   0.000  swled_app/led_out_3_dpot (swled_app/led_out_3_dpot)
+     FDPE:D                    0.102          swled_app/led_out_3
+    ----------------------------------------
+    Total                      6.260ns (2.343ns logic, 3.917ns route)
+                                       (37.4% logic, 62.6% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'fx2Clk_in'
+  Total number of paths / destination ports: 192 / 27
+-------------------------------------------------------------------------
+Offset:              6.753ns (Levels of Logic = 3)
+  Source:            comm_fpga_fx2/state_FSM_FFd4 (FF)
+  Destination:       fx2Data_io<7> (PAD)
+  Source Clock:      fx2Clk_in rising
+
+  Data Path: comm_fpga_fx2/state_FSM_FFd4 to fx2Data_io<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FD:C->Q              33   0.447   1.650  comm_fpga_fx2/state_FSM_FFd4 (comm_fpga_fx2/state_FSM_FFd4)
+     LUT5:I0->O           14   0.203   1.062  comm_fpga_fx2/driveBus_inv1 (comm_fpga_fx2/driveBus_inv)
+     LUT4:I2->O            2   0.203   0.616  comm_fpga_fx2/Mmux_dataOut21 (comm_fpga_fx2/dataOut<1>)
+     IOBUF:I->IO               2.571          fx2Data_io_5_IOBUF (fx2Data_io<5>)
+    ----------------------------------------
+    Total                      6.753ns (3.424ns logic, 3.329ns route)
+                                       (50.7% logic, 49.3% route)
+
+=========================================================================
+Timing constraint: Default path analysis
+  Total number of paths / destination ports: 20 / 12
+-------------------------------------------------------------------------
+Delay:               6.822ns (Levels of Logic = 4)
+  Source:            fx2GotRoom_in (PAD)
+  Destination:       fx2Data_io<7> (PAD)
+
+  Data Path: fx2GotRoom_in to fx2Data_io<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O             5   1.222   0.943  fx2GotRoom_in_IBUF (fx2GotRoom_in_IBUF)
+     LUT5:I2->O           14   0.205   1.062  comm_fpga_fx2/driveBus_inv1 (comm_fpga_fx2/driveBus_inv)
+     LUT4:I2->O            2   0.203   0.616  comm_fpga_fx2/Mmux_dataOut21 (comm_fpga_fx2/dataOut<1>)
+     IOBUF:I->IO               2.571          fx2Data_io_5_IOBUF (fx2Data_io<5>)
+    ----------------------------------------
+    Total                      6.822ns (4.201ns logic, 2.621ns route)
+                                       (61.6% logic, 38.4% route)
+
+=========================================================================
+
+Cross Clock Domains Report:
+--------------------------
+
+Clock to Setup on destination clock fx2Clk_in
+---------------------+---------+---------+---------+---------+
+                     | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock         |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------------+---------+---------+---------+---------+
+debouncer5/button_deb|         |    6.206|         |         |
+fx2Clk_in            |    5.833|         |         |         |
+---------------------+---------+---------+---------+---------+
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 9.00 secs
+Total CPU time to Xst completion: 9.18 secs
+ 
+--> 
+
+
+Total memory usage is 397956 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   88 (   0 filtered)
+Number of infos    :   22 (   0 filtered)
+

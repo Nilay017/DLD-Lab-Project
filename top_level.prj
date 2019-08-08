@@ -1,0 +1,8 @@
+vhdl work "seven_seg.vhdl"
+vhdl work "harness.vhdl"
+vhdl work "encryptor.vhd"
+vhdl work "decryptor.vhd"
+vhdl work "debouncer.vhd"
+vhdl work "comm_fpga_fx2.vhdl"
+vhdl work "cksum_rtl.vhdl"
+vhdl work "top_level.vhdl"

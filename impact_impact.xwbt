@@ -1,0 +1,8 @@
+INTSTYLE=impact
+INFILE=/home/ashish_221b/BekarLab/impact.xsl
+OUTFILE=/home/ashish_221b/BekarLab/impact.xsl
+FAMILY=Single
+PART=Single
+WORKINGDIR=/home/ashish_221b/BekarLab
+LICENSE=iMPACT
+USER_INFO=iMPACT
